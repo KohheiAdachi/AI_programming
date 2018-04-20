@@ -13,5 +13,5 @@ transistor(n8,gnd,power).
 inverter(In,Out) :- transistor(In,gnd,Out),resistor(power,Out).
 nand(In1,In2,Out) :- transistor(In1,X,Out),transistor(In2,gnd,X),resistor(power,Out).
 and(In1,In2,Out) :- nand(In1,In2,X),inverter(X,Out).
-nor(In1,In2,Out) :- transistor(In1,gnd,Out),transistor(In2,gnd,Out),resistor(power,Out).
+nor(In1,In2,Out) :- transistor(In1,gnd,Out),transistor(In2,gnd,Out)
 or(In1,In2,Out) :- nor(In1,In2,X),inverter(X,Out).
