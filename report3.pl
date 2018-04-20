@@ -1,15 +1,14 @@
 resistor(power,n1).
 resistor(power,n2).
 resistor(power,n5).
-resistor(power,n7).
-resistor(power,n8).
+resistor(power,n6).
 
 transistor(n2,gnd,n1).
 transistor(n3,n4,n2).
 transistor(n5,gnd,n4).
 transistor(n6,gnd,n5).
-transistor(n7,gnd,power).
-transistor(n8,gnd,power).
+transistor(n7,gnd,n6).
+transistor(n8,gnd,n6).
 
 
 inverter(In,Out) :- transistor(In,gnd,Out),resistor(power,Out).
