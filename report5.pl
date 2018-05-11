@@ -10,4 +10,4 @@ cost(X,Y,C) :- arc(X,Y,C).
 %中継点ありの時
 cost(X,Y,C) :- arc(X,C1,D1),
                cost(C1,Y,Ans),
-               C is C1 + Ans.
+               C is D1 + Ans.
