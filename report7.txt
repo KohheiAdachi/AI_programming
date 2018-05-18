@@ -1,3 +1,9 @@
+%%#%%BEGIN
+%% 氏名:安達康平
+%% 学籍番号:18231202
+%% 日付:2017/05/18
+%% Program
+% この下にプログラムを入れる。
 %member(A,L)の定義
 %単純処理
 my_member(A,List) :- L = [A | _ ].
@@ -46,3 +52,28 @@ myRev(L,RL) :- L = [H|T],
 %em(A,L)
 em(A,[_,A|_]).
 em(A,L) :- L = [_,_|T],em(A,T).
+
+%% Result
+% この下に実行結果を入れる。
+yes
+| ?- unique([a,b,c,c,a,b,c,d],S).
+S = [a,b,c,d] ? ;
+no
+| ?- intersec([a,b,c],[b,c,d],Z).
+Z = [a,b,c] ? ;
+no
+| ?- myRev([a,b,c,d],RL).
+RL = [d,c,b,a] ? ;
+no
+| ?- em(A,[a,b,c,d,e,f]).
+A = b ? ;
+A = d ? ;
+A = f ? ;
+no
+
+%% Comments
+% この下に考察、コメントなどを入れる。
+再帰が難しかった．イメージが湧きにくいので，トレーニングしたいと思った．
+
+
+%%#%%END
