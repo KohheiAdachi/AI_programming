@@ -20,5 +20,5 @@ append(X,Y,Z) :- X = [H|T],
 %myRev(L,RL)
 myRev([],RL) :- RL = [].
 myRev(L,RL) :- L = [X|T],
-              append(Y,T,Z1),
+              append(RL,L,Z1),
               Z = [H | Z1].
