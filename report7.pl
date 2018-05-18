@@ -24,11 +24,14 @@ unique(L,S) :- L = [H|T],
                unique(T,S1),
 	             member(H,S1),
 	             S = S1.
+intersec(X,Y,Z) :- X = [],Z=[].
 
 intersec(X,Y,Z) :- X = [H | T],
+	           intersec(T,Y,Z1),
                    member(H,Z1),
                    Z = Z1.
 intersec(X,Y,Z) :- X = [H | T],
+		   intersec(T,Y,Z1),
                    \+member(H,Z1),
                    Z = [H|Z1].
 
@@ -38,3 +41,7 @@ myRev([],RL) :- RL = [].
 myRev(L,RL) :- L = [H|T],
               myRev(T,RL1),
               my_append(RL1,[H],RL).
+%em(A,L)
+em(A,_,A|_).
+em(A,L) :- L = [_,_|T],em(A,T).
+
