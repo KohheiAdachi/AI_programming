@@ -18,12 +18,20 @@ unique(L,S) :- L =[A | []],S = [A].
 %再帰処理
 unique(L,S) :- L = [H|T],
 	       unique(T,S1),
-	       \+member(H,S1), 
+	       \+member(H,S1),
 	       S = [H|S1].
 unique(L,S) :- L = [H|T],
                unique(T,S1),
-	       member(H,S1),
-	       S = S1.
+	             member(H,S1),
+	             S = S1.
+
+intersec(X,Y,Z) :- X = [H | T],
+                   member(H,Z1),
+                   Z = Z1.
+intersec(X,Y,Z) :- X = [H | T],
+                   \+member(H,Z1),
+                   Z = [H|Z1].
+
 
 %myRev(L,RL)
 myRev([],RL) :- RL = [].
