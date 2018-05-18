@@ -11,4 +11,4 @@ path(X,Y,C,P) :- arc(X,Y,C),P=[X,Y].
 path(X,Y,C,P) :- arc(X,C1,D1),
                path(C1,Y,Ans,P1),
                C is D1 + Ans,
-               P = [X,P1].
+               P = [X|P1].
