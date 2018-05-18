@@ -2,7 +2,8 @@
 %単純処理
 member(A,List) :- L = [A | _ ].
 %再帰処理
-member(A,L) :- L = [H | T],A ¥= H,
+member(A,L) :- L = [H | T],
+                  A \= H,
                   member(A,T).
 %append(X,Y,Z)の定義
 %単純処理
