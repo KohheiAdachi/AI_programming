@@ -42,6 +42,5 @@ myRev(L,RL) :- L = [H|T],
               myRev(T,RL1),
               my_append(RL1,[H],RL).
 %em(A,L)
-em(A,_,A|_).
+em(A,[_,A|_]).
 em(A,L) :- L = [_,_|T],em(A,T).
-
