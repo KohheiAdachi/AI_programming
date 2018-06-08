@@ -20,7 +20,7 @@ border(Y,X) :- conn(X,Y).
 paint([],[]).
 paint(In,Re) :- In = [H|T],
                 paint(T,Re1),
-                subpaint(H,Re).
+                subpaint(Re1,H,C)).
                 Re = [[H,C]|Re1].
 %sub_paint
 subpaint([],_,C) :- color(C).
