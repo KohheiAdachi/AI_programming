@@ -15,3 +15,11 @@ subinsertAll(LL,X,Y,Ans) :- LL = [H|Head],
                             H \= X,
                             subinsertAll(Head,X,Y,Ans1),
                             Ans = [H|Ans1].
+
+%数式Expを評価し，値をValに求める
+eval(Exp,Val) :- number(Exp).
+
+eval(add(X,Y),Val) :- eval(X,V1),eval(Y,V2),Val is V1+V2.
+eval(minus(X,Y),Val) :- eval(X,V1),eval(Y,V2),Val is V1-V2.
+eval(times(X,Y),Val) :- eval(X,V1),eval(Y,V2),Val is V1*V2.
+eval(divide(X,Y),Val) :- eval(X,V1),eval(Y,V2),Val is V1/V2.
