@@ -13,6 +13,7 @@ conn(d,c).
 conn(d,b).
 conn(e,b).
 conn(b,c).
+conn(c,e).
 %逆説対応
 border(X,Y) :- conn(X,Y).
 border(Y,X) :- conn(X,Y).
