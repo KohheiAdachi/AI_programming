@@ -2,7 +2,15 @@
 %第２パラメータXに与えたアトムがあればその後に第３パラメータYのアトムを挿入した結果を第４パラメータAnsに求めるintertAll(L,X,Y,Ans)
 
 insertAll([],_,_,[]).
-insertAll(LL,X,Y,Ans) :- LL = [Head|Tail],
-                        subinsertAll(Head,X,Y,Ans1),
-                        %intertAll(Tail,X,Y,Out),
-                        Ans = [X,Y|Ans1].
+insertAll(LL,X,Y,Out) :- LL = [Head|Tail],
+                        subinsertAll(Head,X,Y,HeadAns),
+                        intertAll(Tail,X,Y,Ans),
+                        Out = [X,Y|Ans1].
+subinsertAll(LL,X,Y,Ans) :- LL = [X|Head],
+                            subinsertAll(Head,X,Y,Ans1),
+                            Ans = [X,Y|Ans1].
+
+subinsertAll(LL,X,Y,Ans) :- LL = [H|Head],
+                            H \= X,
+                            subinsertAll(Head,X,Y,Ans1),
+                            Ans = [H|Ans1].
