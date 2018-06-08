@@ -8,12 +8,11 @@ conn(a,e).
 conn(a,d).
 conn(a,c).
 conn(a,b).
-conn(d,a).
-conn(d,c).
-conn(d,b).
-conn(e,b).
-conn(b,c).
+conn(b,e).
 conn(c,e).
+conn(b,c).
+conn(b,d).
+conn(c,d).
 %逆説対応
 border(X,Y) :- conn(X,Y).
 border(Y,X) :- conn(X,Y).
