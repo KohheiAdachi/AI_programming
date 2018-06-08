@@ -3,6 +3,6 @@
 
 insertAll([],_,_,[]).
 insertAll(LL,X,Y,Ans) :- LL = [Head|Tail],
-                        subinsertAll(Head,X,Y,HeadOut),
-                        intertAll(Tail,X,Y,Out),
-                        Ans = [HeadOut|Out].
+                        subinsertAll(Head,X,Y,Ans1),
+                        %intertAll(Tail,X,Y,Out),
+                        Ans = [X,Y|Ans1].
