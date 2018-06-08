@@ -6,11 +6,11 @@ insertAll(LL,X,Y,Out) :- LL = [Head|Tail],
                         subinsertAll(Head,X,Y,HeadAns),
                         intertAll(Tail,X,Y,Ans),
                         Out = [X,Y|Ans].
-subinsertAll(LL,X,Y,Ans1) :- LL = [X|Head],
+subinsertAll(LL,X,Y,Ans) :- LL = [X|Head],
                             subinsertAll(Head,X,Y,Ans1),
                             Ans = [X,Y|Ans1].
 
-subinsertAll(LL,X,Y,Ans1) :- LL = [H|Head],
+subinsertAll(LL,X,Y,Ans) :- LL = [H|Head],
                             H \= X,
                             subinsertAll(Head,X,Y,Ans1),
                             Ans = [H|Ans1].
