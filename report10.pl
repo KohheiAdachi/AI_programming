@@ -7,10 +7,10 @@ arc(b,d,1).
 arc(d,c,3).
 
 %中継点なしの時
-path(X,Y,P,L):-path(X,Y,[],P,0,L).
-path(X,Y,AccP,P,AccL,L) :- arc(X,Y,L1),
-                           append(AccP,[X,Y],P),
-                           L is AccL + L1.
+%path(X,Y,P,L):-path(X,Y,[],P,0,L).
+%path(X,Y,AccP,P,AccL,L) :- arc(X,Y,L1),
+%                           append(AccP,[X,Y],P),
+%                           L is AccL + L1.
 
 %中継点ありの時
 path(X,Y,AccP,P,AccL,L) :- arc(X,C1,L1),
