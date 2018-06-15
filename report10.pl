@@ -18,4 +18,4 @@ path(X,Y,AccP,P,AccL,L) :- arc(X,C1,L1),
                            \+member(C1,AccP),
                            append(AccP,[X],AccPP),
                            AccLL is AccL + L1,
-                           path(C,B,AccPP,P,AccLL,L).
+                           path(C,Y,AccPP,P,AccLL,L).
