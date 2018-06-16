@@ -1,0 +1,77 @@
+%%#%%BEGIN
+%% 氏名:安達康平
+%% 学籍番号:18231202
+%% 日付:2017/6/8
+%% Program
+% この下にプログラムを入れる。
+%色の定義
+color(red).
+color(while).
+color(blue).
+color(yellow).
+%接している領域の定義
+conn(a,e).
+conn(a,d).
+conn(a,c).
+conn(a,b).
+conn(b,e).
+conn(c,e).
+conn(b,c).
+conn(b,d).
+conn(c,d).
+%逆説対応
+border(X,Y) :- conn(X,Y).
+border(Y,X) :- conn(X,Y).
+%関数本体
+paint([],[]).
+paint(In,Re) :- In = [H|T],
+                paint(T,Re1),
+                subpaint(Re1,H,C),
+                Re = [[H,C]|Re1].
+%sub_paint
+subpaint([],_,C) :- color(C).
+subpaint([[HH,HT]|T],In,C):-
+                          subpaint(T,In,C1),
+                          border(In,HH),
+                          C1 \== HT,
+                          C = C1.
+
+subpaint([[HH,_]|T],In,C) :- subpaint(T,In,C1),
+                            \+border(In,HH),
+                            C=C1.
+
+
+%% Result
+% この下に実行結果を入れる。
+| ?- paint([a,b,c,d,e],Result).
+Result = [[a,yellow],[b,blue],[c,while],[d,red],[e,red]] ? ;
+Result = [[a,blue],[b,yellow],[c,while],[d,red],[e,red]] ? ;
+Result = [[a,yellow],[b,while],[c,blue],[d,red],[e,red]] ? ;
+Result = [[a,while],[b,yellow],[c,blue],[d,red],[e,red]] ? ;
+Result = [[a,blue],[b,while],[c,yellow],[d,red],[e,red]] ? ;
+Result = [[a,while],[b,blue],[c,yellow],[d,red],[e,red]] ? ;
+Result = [[a,yellow],[b,blue],[c,red],[d,while],[e,while]] ? ;
+Result = [[a,blue],[b,yellow],[c,red],[d,while],[e,while]] ? ;
+Result = [[a,yellow],[b,red],[c,blue],[d,while],[e,while]] ? ;
+Result = [[a,red],[b,yellow],[c,blue],[d,while],[e,while]] ? ;
+Result = [[a,blue],[b,red],[c,yellow],[d,while],[e,while]] ? ;
+Result = [[a,red],[b,blue],[c,yellow],[d,while],[e,while]] ? ;
+Result = [[a,yellow],[b,while],[c,red],[d,blue],[e,blue]] ? ;
+Result = [[a,while],[b,yellow],[c,red],[d,blue],[e,blue]] ? ;
+Result = [[a,yellow],[b,red],[c,while],[d,blue],[e,blue]] ? ;
+Result = [[a,red],[b,yellow],[c,while],[d,blue],[e,blue]] ? ;
+Result = [[a,while],[b,red],[c,yellow],[d,blue],[e,blue]] ? ;
+Result = [[a,red],[b,while],[c,yellow],[d,blue],[e,blue]] ? ;
+Result = [[a,blue],[b,while],[c,red],[d,yellow],[e,yellow]] ? ;
+Result = [[a,while],[b,blue],[c,red],[d,yellow],[e,yellow]] ? ;
+Result = [[a,blue],[b,red],[c,while],[d,yellow],[e,yellow]] ? ;
+Result = [[a,red],[b,blue],[c,while],[d,yellow],[e,yellow]] ? ;
+Result = [[a,while],[b,red],[c,blue],[d,yellow],[e,yellow]] ? ;
+Result = [[a,red],[b,while],[c,blue],[d,yellow],[e,yellow]] ? ;
+no
+
+%% Comments
+% この下に考察、コメントなどを入れる。
+大変だった
+
+%%#%%END
