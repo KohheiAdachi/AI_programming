@@ -1,0 +1,23 @@
+| ?- s([taro,has,a,pen],[],Tree,Mean).
+        1      1 Call: s([taro,has,a,pen],[],_1123,_1175) ? 
+        2      2 Call: np([taro,has,a,pen],_3015,_3001,_3019,_3021) ? 
+        3      3 Call: pn([taro,has,a,pen],_3015,_4189,_3019,_3021) ? 
+        3      3 Exit: pn([taro,has,a,pen],[has,a,pen],pn(taro),taro,s3) ? 
+        2      2 Exit: np([taro,has,a,pen],[has,a,pen],np(pn(taro)),taro,s3) ? 
+        4      2 Call: vp([has,a,pen],[],_3003,_1175,taro,_3041) ? 
+        5      3 Call: v([has,a,pen],_8129,_8115,_1175,(taro,_8143),_3041) ? 
+?       5      3 Exit: v([has,a,pen],[a,pen],v(has),have(taro,_8143),(taro,_8143),[s3]) ? 
+        6      3 Call: np([a,pen],[],_8117,_8143) ? 
+        7      4 Call: det([a,pen],_11231,_11217) ? 
+        7      4 Exit: det([a,pen],[pen],det(a)) ? 
+        8      4 Call: n([pen],[],_11219,_8143) ? 
+        8      4 Exit: n([pen],[],n(pen),pen) ? 
+        6      3 Exit: np([a,pen],[],np(det(a),n(pen)),pen) ? 
+?       4      2 Exit: vp([has,a,pen],[],vp(v(has),np(det(a),n(pen))),have(taro,pen),taro,[s3]) ? 
+        9      2 Call: member(s3,[s3]) ? 
+        9      2 Exit: member(s3,[s3]) ? 
+?       1      1 Exit: s([taro,has,a,pen],[],s(np(pn(taro)),vp(v(has),np(det(a),n(pen)))),have(taro,pen)) ? 
+Tree = s(np(pn(taro)),vp(v(has),np(det(a),n(pen)))),
+Mean = have(taro,pen) ? 
+yes
+
