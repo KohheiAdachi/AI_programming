@@ -1,5 +1,32 @@
-s(X,Z):-np(X,Y),vp(Y,Z).
+% 叙述文
+s(X,Z,s(NP,VP),V) :- np(X,Y,NP,SS,N),
+		     vp(Y,Z,VP,V,SS,VV),
+		     member(N,VV).
 
+np(X,Z,np(Det,N),Obj) :- det(X,Y,Det),
+			 n(Y,Z,N,Obj).
+
+np(X,Y,np(PN),SS,N) :- pn(X,Y,PN,SS,N).
+
+vp(X,Z,vp(Vt,NP),V,SS,VV) :- v(X,Y,Vt,V,(SS,Obj),VV),
+		 	     np(Y,Z,NP,Obj).
+
+% 疑問文
+qs(A,E,qs(Wh,Av,NP,Vt),V) :- what(A,B,Wh,Q),
+	         	     av(B,C,Av,List),
+			     np(C,D,NP,SS,N),
+			     v(D,E,Vt,V,(SS,Q),_),
+		      	     member(N,List).
+
+qs(A,D,qs(Av,Np,Vp),V) :- av(A,B,Av,List),
+			  np(B,C,Np,SS,N),
+			  vp(C,D,Vp,V,SS,_),
+			  member(N,List).
+
+
+
+
+s(X,Z):-np(X,Y),vp(Y,Z).
 np(X,Z):-det(X,Y),n(Y,Z).
 np(X,Y):-pn(X,Y).
 vp(X,Z):-v(X,Y),np(Y,Z).
