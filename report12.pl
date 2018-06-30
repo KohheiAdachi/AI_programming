@@ -8,7 +8,7 @@ np(X,Z,np(Det,N),Obj) :- det(X,Y,Det),
 
 np(X,Y,np(PN),SS,N) :- pn(X,Y,PN,SS,N).
 
-np(X,Y,np(N),Obj):-np(X,Y,N,Obj).
+np(X,Y,np(N),Obj):-n(X,Y,N,Obj).
 
 vp(X,Z,vp(Vt,NP),V,SS,VV) :- v(X,Y,Vt,V,(SS,Obj),VV),
 		 	     np(Y,Z,NP,Obj).
@@ -35,6 +35,7 @@ vp(X,Z):-v(X,Y),np(Y,Z).
 det([a|X],X,det(a)).
 n([book|X],X,n(book),book).
 n([pen|X],X,n(pen),pen).
+n([dogs|X],X,n(dogs),dogs).
 pn([taro|X],X,pn(taro),taro,s3).
 pn([yuki|X],X,pn(yuki),yuki,s3).
 pn([cats|X],X,pn(cats),cats,p3).
