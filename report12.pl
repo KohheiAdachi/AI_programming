@@ -36,6 +36,7 @@ det([a|X],X,det(a)).
 n([book|X],X,n(book),book).
 n([pen|X],X,n(pen),pen).
 n([dogs|X],X,n(dogs),dogs).
+n([cats|X],X,n(cats),cats).
 pn([taro|X],X,pn(taro),taro,s3).
 pn([yuki|X],X,pn(yuki),yuki,s3).
 pn([cats|X],X,pn(cats),cats,p3).
