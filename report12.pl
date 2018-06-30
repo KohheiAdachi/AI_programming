@@ -26,7 +26,7 @@ qs(A,D,qs(Av,Np,Vp),V) :- av(A,B,Av,List),
 
 s(X,Z):-np(X,Y),vp(Y,Z).
 np(X,Z):-det(X,Y),n(Y,Z).
-np(X,Y).
+np(X,Y):-n(X,Y)
 np(X,Y):-pn(X,Y).
 vp(X,Z):-v(X,Y),np(Y,Z).
 
