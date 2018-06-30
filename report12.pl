@@ -8,6 +8,8 @@ np(X,Z,np(Det,N),Obj) :- det(X,Y,Det),
 
 np(X,Y,np(PN),SS,N) :- pn(X,Y,PN,SS,N).
 
+np(X,np(N),Obj):-np(X,N,Obj).
+
 vp(X,Z,vp(Vt,NP),V,SS,VV) :- v(X,Y,Vt,V,(SS,Obj),VV),
 		 	     np(Y,Z,NP,Obj).
 
@@ -26,7 +28,7 @@ qs(A,D,qs(Av,Np,Vp),V) :- av(A,B,Av,List),
 
 s(X,Z):-np(X,Y),vp(Y,Z).
 np(X,Z):-det(X,Y),n(Y,Z).
-np(X,Y):-n(X,Y)
+np(X):-n(X).
 np(X,Y):-pn(X,Y).
 vp(X,Z):-v(X,Y),np(Y,Z).
 
