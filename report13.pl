@@ -32,7 +32,7 @@ simple_qa :- read(Input),translate(Input,Meaning,DQ),
 
 
 %平叙文解析
-translate(Input,Meaning,dec) :- s(Input,[],_,Meaning),!.
+translate(In,Meaning,dec) :- s(In,[],_,Meaning),!.
 %疑問文解析
 translate(Input,Meaning,ques) :- qs(Input,[],_,Meaning).
 
