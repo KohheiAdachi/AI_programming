@@ -1,3 +1,4 @@
+dybanuc have/2.
 % 叙述文
 s(X,Z,s(NP,VP),V) :- np(X,Y,NP,SS,N),
 		     vp(Y,Z,VP,V,SS,VV),
@@ -34,7 +35,7 @@ simple_qa :- read(Input),translate(Input,Meaning,DQ),
 %平叙文解析
 translate(In,Meaning,dec) :- s(In,[],_,Meaning),!.
 %疑問文解析
-translate(Input,Meaning,ques) :- qs(Input,[],_,Meaning).
+translate(In,Meaning,ques) :- qs(In,[],_,Meaning).
 
 %平叙文
 proc(Meaning,dec) :- Meaning,!,wirte('すでに知っています。'),nl.
