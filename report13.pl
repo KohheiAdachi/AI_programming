@@ -64,7 +64,7 @@ pn([hukuoka|X],X,pn(hukuoka),hukuoka,s3).
 pn([jiro|X],X,pn(jiro),jiro,s3).
 pn([dogs|X],X,pn(dogs),dogs,s3).
 %動詞
-v([has|X],X,v(has),has(S,O),(S,O),[s3]).
+v([has|X],X,v(has),have(S,O),(S,O),[s3]).
 v([like|X],X,v(like),like(S,O),(S,O),[s1,s2,p1,p2,p3]).
 v([likes|X],X,v(likes),likes(S,O),(S,O),[s3]).
 v([lives|X],X,v(lives),lives(S,O),(S,O),[s3]).
