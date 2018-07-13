@@ -1,4 +1,4 @@
-dybanuc have/2.
+dynamic have/2.
 % 叙述文
 s(X,Z,s(NP,VP),V) :- np(X,Y,NP,SS,N),
 		     vp(Y,Z,VP,V,SS,VV),
