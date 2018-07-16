@@ -1,6 +1,6 @@
 :- dynamic have/2.
 % conv読み込み
-:- con('conv_st')
+:- con('conv_st').
 % 叙述文
 s(X,Z,s(NP,VP),V) :- np(X,Y,NP,SS,N),
 		     vp(Y,Z,VP,V,SS,VV),
@@ -30,8 +30,14 @@ qs(A,D,qs(Av,Np,Vp),V) :- av(A,B,Av,List),
 
 %一文入力ごとの処理
 simple_qa :- repeat,read_eng(Input),
+<<<<<<< HEAD
 						 (Input = [exit];(translate(Input,Meaning,DQ)->proc(Meaning,DQ);
 						 write('意味が分かりません'),fail).
+=======
+	     (Input = [exit];(translate(Input,Meaning,DQ)->proc(Meaning,DQ),
+	      write('意味が分かりません'),nl),fail).
+
+>>>>>>> e833c0990cb238320fa2e888922bc9f73ca492b9
 
 
 
