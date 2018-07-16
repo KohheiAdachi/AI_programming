@@ -11,7 +11,6 @@ np(X,Z,np(Det,N),Obj) :- det(X,Y,Det),
 
 np(X,Y,np(PN),SS,N) :- pn(X,Y,PN,SS,N).
 
-np(X,Y,np(N),Obj):-n(X,Y,N,Obj).
 
 vp(X,Z,vp(Vt,NP),V,SS,VV) :- v(X,Y,Vt,V,(SS,Obj),VV),
 		 	     np(Y,Z,NP,Obj).
