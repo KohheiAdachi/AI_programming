@@ -30,7 +30,7 @@ qs(A,D,qs(Av,Np,Vp),V) :- av(A,B,Av,List),
 
 %一文入力ごとの処理
 simple_qa :- repeat,read_eng(Input),
-						 (Input = [exit];(translate(Input,Meaning,DQ)->proc(Meaning,DQ),
+						 (Input = [exit];(translate(Input,Meaning,DQ)->proc(Meaning,DQ);
 						 write('意味が分かりません'),fail).
 
 
