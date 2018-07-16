@@ -30,8 +30,9 @@ qs(A,D,qs(Av,Np,Vp),V) :- av(A,B,Av,List),
 
 %一文入力ごとの処理
 simple_qa :- repeat,read_eng(Input),
-	     (Input = end_of_file;translate(Input,Meaning,DQ),
-             proc(Meaning,DQ),fail).
+	     (Input = [exit];(translate(Input,Meaning,DQ)->proc(Meaning,DQ),
+	      write('意味が分かりません'),fail).
+
 
 
 
@@ -45,19 +46,23 @@ proc(Meaning,dec) :- Meaning,!,wirte('すでに知っています。'),nl.
 proc(Meaning,dec) :- assert(Meaning),write(Meaning),write('を知識ベースに追加しました。'),nl.
 
 %疑問文
-proc(Meaning,ques) :- Meaning,!,s(Output,[],_,Meaning),write(Output),nl.
-proc(_,ques) :- write('質問に答えることができません。'),nl.
+%\+ \+ P :- 否定の否定（パラメータに値が残らず成功失敗だけ分かる）
+proc(Meaning,ques) :- \+ isdo(Meaning),
+		      (\+ \+ Meaning -> all_ans(Meaning);write('知りません'),nl).
+proc(Meaning,ques) :- isdo(Meaning),
+		      (Meaning -> write('Yes'),nl;write('No'),nl).
 
-% \+ \+ P :- 否定の否定（パラメータに値が残らず成功失敗だけ分かる）
-% proc(Meaning,ques) :- \+ isdo(Meaning),
-% 		      (\+ \+ Meaning -> all_ans(Meaning);write('知りません'),nl).
-% proc(Meaning,ques) :- isdo(Meaning),
-% 		      (Meaning -> write('Yes'),nl;write('No'),nl).
-%
-% all_ans(Meaning) :- Meaning,
-% 							    s(Output,[],_,Meaning),
-% 							    write(Output),nl,fail.
-% all_ans(_).
+all_ans(Meaning) :- Meaning,
+							    s(Output,[],_,Meaning),
+							    write(Output),nl,fail.
+all_ans(_).
+
+% Term = ..List :- リスト変換
+% var(X) :- 自由変数かどうか
+isdo(Meaning) :- Meaning =..Dolist,judge(Dolist).
+judge([]).
+judge([H|T]) :- \+ var(H),judge(T).
+
 
 
 s(X,Z):-np(X,Y),vp(Y,Z).
