@@ -7,13 +7,13 @@ arc(c,a,5).
 arc(c,b,3).
 arc(d,c,3).
 
-path(a,c,C,P) :- arc(a,c,C),
-                 P = [a,c].
+path(X,Y,C,P) :- arc(X,Y,C),
+                 P = [X,Y].
 
-path(a,c,C,P) :- arc(a,b,C1),
-                 path(b,c,C2,P1),
+path(X,Y,C,P) :- arc(X,Z,C1),
+                 path(Z,Y,C2,P1),
                  C = C1 + C2.
-                 P = [a|P1].
+                 P = [X|P1].
 
 prolog((G,Gs),Max) :- !,prolog(G,Max),prolog(Gs,Max).
 
