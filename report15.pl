@@ -12,6 +12,7 @@ path(a,c,C,P) :- arc(a,c,C),
 
 path(a,c,C,P) :- arc(a,b,C1),
                  path(b,c,C2,P1),
+                 C = C1 + C2.
                  P = [a|P1].
 
 prolog((G,Gs),Max) :- !,prolog(G,Max),prolog(Gs,Max).
