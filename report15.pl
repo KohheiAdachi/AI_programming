@@ -1,4 +1,4 @@
-
+:- dynamic path/4,arc/3.
 % 経路の定義
 arc(a,b,2).
 arc(a,d,6).
