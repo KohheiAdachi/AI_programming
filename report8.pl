@@ -7,3 +7,10 @@ elm(L,E) :- L = [_,_|A],elm(A,E).
 combination([],[]).
 combination([A|B],[A|C]) :- combination(B,C).
 combination([_|B],C) :- combination(B,C).
+
+
+% combination([],[]).
+% combination(X,[H|T]) :- combination(Z,T),
+%                         X = [H|Z].
+% combination(X,[_|T]) :- combination(Z,T),
+%                         X = Z.
