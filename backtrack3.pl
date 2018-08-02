@@ -3,6 +3,6 @@
 % p(X):-write(X),nl.
 
 
-p([]) :-write(empty),nl.
-p([X|Y]):-!,p(X),p(Y).
+p([]) :-!,write(empty),nl.
+p([X|Y]):-p(X),p(Y).
 p(X):- write(X),nl.
